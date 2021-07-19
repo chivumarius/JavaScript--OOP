@@ -1,12 +1,21 @@
 /* ============================================================================
     MOSTENIRI PROTOTIPICE(A PARINTILOR):
-    SUPRASCRIEREA  METODEI  'DUPLICAT()'' 
+    POLIMORFISMUL
 ============================================================================== */
 
 /*
-    'SUPRASCRIEREA METODEI' SE 'UTILIZEAZA'
-        => IN 'SITUATIILE' IN CARE 'IMPLEMENTAREA' OBIECTULUI 'PARINTE'
-        => 'NU ESTE IDEALA' PT. OBIECTUL 'COPIL'.
+    'SUPRASCRIEREA METODEI' INSEAMNA:
+        => REIMPLEMENTAREA UNEI METODE
+        => IN OBIECTUL 'COPIL'
+
+
+    'POLYMORPHISM':
+        => 'POLY' = MULTE
+        => 'MORPHISM' = FORME  (IMPLEMENTARI)
+
+    EX.:
+        'FORMA / IMPLEMENTAREA DIFERITA' -> A METODEI 'DUPLICAT()'
+            => SE NUMESTE 'POLIMORFISM'
 */
 
 
@@ -65,7 +74,7 @@ function Cerc(raza, culoare) {
 //====================================================================================
 // (3.2) APELAREA FUNC. INTERMEDIARE 'EXTINDE(COPIL, PARINTE)' - PT. 'CERC'
 //====================================================================================
-extinde(Cerc, Forma)
+extinde(Cerc, Forma);
 
 
 
@@ -75,15 +84,66 @@ extinde(Cerc, Forma)
 //====================================================================================
 Cerc.prototype.duplicat = function() {
 
-    // APELAREA MET. 'DUPLICAT()' DIN OBIECTUL 'FORMA':
-    Forma.prototype.duplicat.call(this);
-
     console.log('Duplicat al Cercului');
 }
 
 
 
+
+//=============================================================================================
+// (4.1) CREARE OBIECT 'PATRAT' (PRIN FUNCTIA  CONSTRUCTOR)
+//=============================================================================================
+function Patrat() {
+
+}
+
+
+
+//====================================================================================
+// (4.2) APELAREA FUNC. INTERMEDIARE 'EXTINDE(COPIL, PARINTE)' - PT. 'patrat'
+//====================================================================================
+extinde(Patrat, Forma);
+
+
+
+
+//====================================================================================
+// (4.3) SUPRASCRIEREA METODEI 'DUPLICAT' PT. CREAREA PROTOTIPULUI/PARINTELUI 'CERC'
+//====================================================================================
+Patrat.prototype.duplicat = function() {
+    console.log('Duplicat al Patratului');
+}
+
+
+
+
 //=================================================================
-// (4) CREAREA 'OBIECT'
+// (5.1) MATRICEA 'FORME'  CU OBIECTE
 //=================================================================
-const c = new Cerc(1, 'Rosu');
+const forme = [
+    new Cerc(),
+    new Patrat()
+];
+
+
+
+
+//=================================================================
+// (5.2) ITERAREA MATRICEI 'FORME' 
+//=================================================================
+for (let forma of forme)
+    forma.duplicat();
+
+
+
+//=================================================================
+// (5.3) ITERAREA MATRICEI 'FORME' FARA  'OOP'
+//=================================================================
+// for (let forma of forme) {
+//     if (forma.tip === 'cerc')
+//         duplicareCerc();
+//     else if (forma.type === 'patrat')
+//         duplicarePatrat();
+//     else
+//         duplicareForma();
+// }
