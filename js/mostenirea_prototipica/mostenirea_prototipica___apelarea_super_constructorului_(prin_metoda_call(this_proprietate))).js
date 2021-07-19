@@ -1,26 +1,24 @@
-/* ===============================================================
-   MOSTENIRI PROTOTIPICE (A PARINTILOR):
-   RESETAREA CONSTRUCTORULUI
-=================================================================*/
-
+/* ============================================================================*/
+MOSTENIRI PROTOTIPICE(A PARINTILOR):
+    APELAREA 'SUPER  CONSTRUCTORULUI' (PRIN METODA 'CALL(TIS, PROPRIETATE)') ===
+    ===
+    === === === === === === === === === === === === === === === === === === === === === === === === = * /
 
 /*
-   (NB!)
-        TOATE 'OBIECTELE'  IN JS 
-            => AU O PROP. 'CONSTRUCTOR',
-            => CE 'RETURNEAZA' -> 'FUNCTIE UTILIZATA'
-                => PT. CONSTRUIREA/CREAREA 'OBIECTULUI'.
-
-
-    (*) CAND SE 'RESETEAZA' -. 'PROTOTIPUL' UNUI 'ONIECT'
-            => SE VA 'RESETA' SI 'CONSTRUCTORUL.'  
+    (NB!)
+        OPERATORUL 'NEW' -> CREAZA UN 'OBIECT GOL'
+            -> SI APOI SETEAZA 'THIS' 
+            -> SA REFERE ACEL 'OBIECT'
 */
 
 
 //=================================================================
 // (1.1) FUNCTIA  CONSTRUCTOR = OBIECTUL 'FORMA'
 //=================================================================
-function Forma() {}
+function Forma(culoare) {
+    // SETAREA PROP. 'CULOARE' ==> CATRE OBIECTUL 'WINDOW':
+    this.culoare = culoare;
+}
 
 
 
@@ -37,10 +35,19 @@ Forma.prototype.duplicat = function() {
 
 
 
-//=================================================================
-// (2.1) FUNCTIA  CONSTRUCTOR = OBIECTUL 'CERC'
-//=================================================================
-function Cerc(raza) {
+//=============================================================================================
+// (2.1) FUNCTIA  CONSTRUCTOR 'CERC'
+//       ( APELAREA  'SUPER  CONSTRUCTORULUI' -- PRIN METODA 'CALL(TIS, PROPRIETATE)' )    
+//=============================================================================================
+function Cerc(raza, culoare) {
+
+    // APELAREA  CONSTRUCTORULUI 'FORMA()':
+    // Forma(culoare);
+
+    // APELAREA - PRIN  METODA '.CALL()':
+    Forma.call(this, culoare);
+
+
     this.raza = raza;
 }
 
@@ -70,7 +77,10 @@ Cerc.prototype.desen = function() {
 
 
 //=================================================================
-// (3) DEFINIREA 'OBIECTE'
+// (3) CREAREA 'OBIECTE'
 //=================================================================
+// OBIECTUL 'FORMA':
 const f = new Forma(1);
-const c = new Cerc(1);
+
+// OBIECTUL 'CERC':
+const c = new Cerc(1, 'Rosu');
