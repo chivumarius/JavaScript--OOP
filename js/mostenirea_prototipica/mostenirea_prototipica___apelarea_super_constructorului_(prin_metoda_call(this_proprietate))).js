@@ -1,8 +1,8 @@
-/* ============================================================================*/
-MOSTENIRI PROTOTIPICE(A PARINTILOR):
-    APELAREA 'SUPER  CONSTRUCTORULUI' (PRIN METODA 'CALL(TIS, PROPRIETATE)') ===
-    ===
-    === === === === === === === === === === === === === === === === === === === === === === === === = * /
+/* ============================================================================
+    MOSTENIRI PROTOTIPICE(A PARINTILOR):
+    APELAREA 'SUPER  CONSTRUCTORULUI' (PRIN METODA 'CALL(TIS, PROPRIETATE)') 
+============================================================================== */
+
 
 /*
     (NB!)
