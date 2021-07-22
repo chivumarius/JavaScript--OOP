@@ -1,6 +1,6 @@
 /* ============================================================================
     MODULE JS:
-    FORMATUL  DE  MODUL - 'COMMONJS'  (PT. 'NODE.JS')
+    FORMATUL  DE  MODUL - 'ES6  MODULES'  (PT. 'BROWSER')
 ============================================================================== */
 
 //=================================================================
@@ -11,9 +11,9 @@ const _raza = new WeakMap();
 
 
 //=================================================================
-// (1) INTERFATA PUBLICA (CLASA 'CERC'):
+// (1) EXPORTAREA 'INTERFATA PUBLICA' (CLASA 'CERC'):
 //=================================================================
-class Cerc {
+export class Cerc {
 
     // MET. 'CONSTRUCTOR':
     constructor(raza) {
@@ -28,11 +28,6 @@ class Cerc {
     desen() {
 
         // AFISARE:
-        console.log('Cerc cu Raza ' + _raza.get(this)););
+        console.log('Cerc cu Raza ' + _raza.get(this));
+    }
 }
-}
-
-//=================================================================
-// (2) 'EXPORTAREA' 'MODULULUI' RETURNEAZA 'VALOAREA CLASEI':
-//=================================================================
-module.exports = Cerc;
