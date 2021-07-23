@@ -1,0 +1,25 @@
+{
+    "name": "JavaScript--OOP",
+    "version": "1.0.0",
+    "description": "",
+    "main": "module__convertorul_js__babel_(transpilator).js",
+    "scripts": {
+        "babel": "babel --presets env module__convertorul_js__babel_(transpilator).js -o build/module__convertorul_js__babel_(transpilator).js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MariusKivi/JavaScript--OOP.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MariusKivi/JavaScript--OOP/issues"
+    },
+    "homepage": "https://github.com/MariusKivi/JavaScript--OOP#readme",
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-core": "^6.26.0",
+        "babel-preset-env": "^1.6.1"
+    }
+}
